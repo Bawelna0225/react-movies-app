@@ -8,6 +8,8 @@ const Main = () => {
 	const [movieData, setData] = useState([])
 	const [url_set, setUrl] = useState(url)
 	const [search, setSearch] = useState()
+	const [sideNavOpen, setSideNavOpen] = useState(false)
+
 	useEffect(() => {
 		fetch(url_set)
 			.then((res) => res.json())
@@ -35,7 +37,7 @@ const Main = () => {
 		if (movieType == 'Animation') {
 			url = base_url + '/discover/movie?with_genres=16&sort_by=revenue.desc' + API_key
 		}
-			if (movieType == 'Horror') {
+		if (movieType == 'Horror') {
 			url = base_url + '/discover/movie?with_genres=27&sort_by=revenue.desc' + API_key
 		}
 		setUrl(url)
@@ -47,11 +49,41 @@ const Main = () => {
 			setSearch('')
 		}
 	}
+
+	const toggleSideMenu = () => {
+		setSideNavOpen(!sideNavOpen)
+	}
+
 	return (
 		<>
 			<div className="header">
 				<nav>
-					<ul>
+					<div className={sideNavOpen ? 'wrapper-menu open' : 'wrapper-menu'} id="toggle-menu" onClick={toggleSideMenu}>
+						<div className="line-menu half start"></div>
+						<div className="line-menu"></div>
+						<div className="line-menu half end"></div>
+					</div>
+					<div className={sideNavOpen ? 'nav' : 'nav hide'} id="side-nav">
+						<ul>
+							{arr.map((value, pos) => {
+								return (
+									<li>
+										<a
+											href="#"
+											key={pos}
+											name={value}
+											onClick={(e) => {
+												getData(e.target.name)
+											}}
+										>
+											{value}
+										</a>
+									</li>
+								)
+							})}
+						</ul>
+					</div>
+					<ul className="navbar">
 						{arr.map((value, pos) => {
 							return (
 								<li>

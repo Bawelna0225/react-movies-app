@@ -28,7 +28,7 @@ const Card = (movie) => {
 								background: `conic-gradient(${movie.info.vote_average > 7 ? 'green' : movie.info.vote_average < 3 ? 'red' : 'yellow'} ${movie.info.vote_average * 10}%, #444 ${movie.info.vote_average * 10}%)`,
 							}}
 						>
-							<span className="rating-value">{movie.info.vote_average * 10}%</span>
+							<span className="rating-value">{movie.info.vote_average}</span>
 						</div>
 					</div>
 				</div>
