@@ -23,10 +23,11 @@ body {
   border-radius: 8px;
   box-shadow: 5px 5px 10px rgb(21, 21, 40);
   position: relative;
+  cursor: pointer;
 }
 .movie-card:hover .show-more {
   transition: all 300ms ease-in;
-  opacity: 0.7;
+  opacity: 0;
 }
 .movie-card .show-more {
   position: absolute;
@@ -96,48 +97,6 @@ body {
   right: 5px;
   top: 8px;
   font-size: 8px;
-}
-.movie-card .overview {
-  position: absolute;
-  overflow-y: scroll;
-  background-color: rgba(9, 4, 19, 0.902);
-  padding: 20px;
-  font-size: 18px;
-  color: white;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-.movie-card .overview p {
-  padding-top: 20px;
-  top: 0;
-}
-.movie-card .overview::-webkit-scrollbar {
-  width: 5px;
-}
-.movie-card .overview::-webkit-scrollbar-thumb {
-  background-color: aqua;
-}
-.movie-card .overview.open {
-  opacity: 1;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.movie-card .overview .close {
-  padding: 8px 12px;
-  font-size: 20px;
-  bottom: 20px;
-  right: 20px;
-  cursor: pointer;
-  background-color: rgb(0, 213, 255);
-  border-radius: 5px;
 }
 
 .header {
@@ -300,9 +259,164 @@ form input {
   transition: 400ms all linear;
 }
 
+.modal {
+  position: fixed;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.913);
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.modal.open {
+  display: flex;
+}
+.modal .modal-box {
+  z-index: 20;
+  border-radius: 8px;
+  width: min(1600px, 100% - 2rem);
+  background-color: rgb(12, 16, 29);
+  padding: 30px;
+}
+.modal .modal-box .modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+.modal .modal-box .modal-header button {
+  position: absolute;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid white;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-box .modal-header button span {
+  font-size: 3rem;
+  color: white;
+}
+.modal .modal-box .modal-header button:hover {
+  border-color: var(--accent-color);
+}
+.modal .modal-box .modal-header button:hover span {
+  color: var(--accent-color);
+}
+.modal .modal-box .modal-body {
+  display: flex;
+  gap: 50px;
+}
+.modal .modal-box .modal-body .left-side .poster img {
+  border-radius: 5px;
+}
+.modal .modal-box .modal-body .right-side {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-right: 80px;
+}
+.modal .modal-box .modal-body .right-side .title {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+}
+.modal .modal-box .modal-body .right-side .overview {
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.modal .modal-box .modal-body .right-side .overview h3 {
+  font-size: 2rem;
+}
+.modal .modal-box .modal-body .user-score {
+  display: flex;
+  gap: 20px;
+  font-size: 1.6rem;
+  align-items: center;
+}
+.modal .modal-box .modal-body .rating {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  right: 10px;
+  top: -25px;
+  display: grid;
+  place-items: center;
+}
+.modal .modal-box .modal-body .rating .rating-value {
+  display: block;
+  height: calc(100% - 8px);
+  width: calc(100% - 8px);
+  background-color: rgb(25, 25, 52) !important;
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 22px;
+  position: relative;
+}
+.modal .modal-box .modal-body .rating .rating-value .percentage {
+  position: absolute;
+  right: 5px;
+  top: 8px;
+  font-size: 8px;
+}
+
 @media (max-width: 1052px) {
   .show-more {
     opacity: 1 !important;
+  }
+
+  .modal {
+    overflow-y: auto;
+  }
+  .modal .modal-header button {
+    background-color: rgb(25, 25, 52) !important;
+  }
+  .modal .modal-header button span {
+    font-size: 2.5rem !important;
+  }
+
+  .modal-body {
+    flex-direction: column;
+  }
+  .modal-body .left-side .poster img {
+    height: 200px;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .modal-body .right-side {
+    gap: 30px !important;
+    margin-right: 0px !important;
+  }
+  .modal-body .right-side .title {
+    font-size: 1.5rem !important;
+  }
+  .modal-body .right-side .user-score .rating {
+    height: 50px !important;
+    width: 50px !important;
+  }
+  .modal-body .right-side .user-score .rating .rating-value {
+    font-size: 1rem !important;
+  }
+  .modal-body .right-side .user-score p {
+    font-size: 1.2rem !important;
+  }
+  .modal-body .right-side .overview h3 {
+    font-size: 1.3rem !important;
+  }
+  .modal-body .right-side .overview p {
+    font-size: 1rem;
   }
 
   .header .logo {
