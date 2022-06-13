@@ -1,3 +1,4 @@
+import { render } from '@testing-library/react'
 import react, { useState } from 'react'
 import { useEffect } from 'react'
 
@@ -6,18 +7,24 @@ const Card = (movie) => {
 	const handleShowOverview = () => {
 		setOpen(true)
 	}
-		const handleCloseOverview = () => {
+	const handleCloseOverview = () => {
 		setOpen(false)
 	}
-
+	const handleCardClick = (e) => {
+		console.log(e.target.parentNode.querySelector('img').src)
+		console.log(e.target.parentNode.querySelector('.title'))
+		console.log(e.target.parentNode.querySelector('.rating'))
+		console.log(e.target.parentNode.querySelector('.overview p'))
+	}
 	let img_path = 'https://image.tmdb.org/t/p/w500'
 	return (
 		<div>
-
-			<div className="movie-card" >
+			<div className="movie-card"  onClick={handleCardClick}>
 				<img src={img_path + movie.info.poster_path} className="poster"></img>
 				<button className="show-more">
-					<span onClick={handleShowOverview} class="material-symbols-outlined">more_horiz</span>
+					<span onClick={handleShowOverview} class="material-symbols-outlined">
+						more_horiz
+					</span>
 				</button>
 				<div className="movie-details">
 					<div className="box">
@@ -32,11 +39,12 @@ const Card = (movie) => {
 						</div>
 					</div>
 				</div>
-					<div className={open ? 'overview open' : 'overview'}>
-						<p>{movie.info.overview}</p>
-						<button className='close' onClick={handleCloseOverview}>Close</button>
-					</div>
-
+				<div className={open ? 'overview open' : 'overview'}>
+					<p>{movie.info.overview}</p>
+					<button className="close" onClick={handleCloseOverview}>
+						Close
+					</button>
+				</div>
 			</div>
 		</div>
 	)

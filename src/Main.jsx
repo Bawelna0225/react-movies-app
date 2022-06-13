@@ -54,9 +54,11 @@ const Main = () => {
 		setSideNavOpen(!sideNavOpen)
 	}
 
+
 	return (
 		<>
 			<div className="header">
+        <div className='logo'>MOVIE APP</div>
 				<nav>
 					<div className={sideNavOpen ? 'wrapper-menu open' : 'wrapper-menu'} id="toggle-menu" onClick={toggleSideMenu}>
 						<div className="line-menu half start"></div>

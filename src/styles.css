@@ -11,7 +11,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   align-items: center;
   gap: 40px;
   padding: 20px;
@@ -60,6 +60,7 @@ body {
 }
 .movie-card .movie-details .box {
   height: 100%;
+  max-width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -98,14 +99,27 @@ body {
 }
 .movie-card .overview {
   position: absolute;
+  overflow-y: scroll;
   background-color: rgba(9, 4, 19, 0.902);
   padding: 20px;
   font-size: 18px;
   color: white;
   opacity: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
+}
+.movie-card .overview p {
+  padding-top: 20px;
+  top: 0;
+}
+.movie-card .overview::-webkit-scrollbar {
+  width: 5px;
+}
+.movie-card .overview::-webkit-scrollbar-thumb {
+  background-color: aqua;
 }
 .movie-card .overview.open {
   opacity: 1;
@@ -118,7 +132,6 @@ body {
 }
 .movie-card .overview .close {
   padding: 8px 12px;
-  position: absolute;
   font-size: 20px;
   bottom: 20px;
   right: 20px;
@@ -168,6 +181,13 @@ form input {
   --text: rgb(255, 255, 255);
   --accent-color: aqua;
   --navbar-color: rgba(0, 12, 35, 0.5);
+}
+
+.logo {
+  color: aqua;
+  font-size: 1.3rem;
+  font-weight: bold;
+  word-spacing: 5px;
 }
 
 .wrapper-menu {
@@ -231,7 +251,7 @@ form input {
 .nav {
   width: min(320px, 100%);
   height: 100vh;
-  background-color: var(--navbar-color);
+  background-color: rgba(12, 16, 29, 0.959);
   position: fixed;
   left: 0;
   opacity: 1;
@@ -280,14 +300,29 @@ form input {
   transition: 400ms all linear;
 }
 
-@media (max-width: 792px) {
+@media (max-width: 1052px) {
+  .show-more {
+    opacity: 1 !important;
+  }
+
+  .header .logo {
+    position: absolute;
+    left: 80px;
+    font-size: 1rem;
+  }
   .header .navbar {
     display: none;
   }
   .header .wrapper-menu {
     display: flex;
+    left: 20px;
   }
   .header .nav {
     display: flex;
+  }
+}
+@media (max-width: 476px) {
+  .header .logo {
+    display: none;
   }
 }/*# sourceMappingURL=styles.css.map */
