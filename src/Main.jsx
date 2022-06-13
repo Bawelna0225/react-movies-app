@@ -23,25 +23,25 @@ const Main = () => {
 
 	const getData = (movieType) => {
 		if (movieType == 'Popular') {
-			url = base_url + '/discover/movie?sort_by=popularity.desc' + API_key
+			url = `${base_url}/discover/movie?sort_by=popularity.desc${API_key}`
 		}
 		if (movieType == 'Fantasy') {
-			url = base_url + '/discover/movie?with_genres=14' + API_key
+			url = `${base_url}/discover/movie?with_genres=14${API_key}`
 		}
 		if (movieType == 'Sci-Fi') {
-			url = base_url + '/discover/movie?with_genres=878&sort_by=popularity.desc' + API_key
+			url = `${base_url}/discover/movie?with_genres=878&sort_by=popularity.desc${API_key}`
 		}
 		if (movieType == 'Drama') {
-			url = base_url + '/discover/movie?with_genres=18&primary_release_year=2014' + API_key
+			url = `${base_url}/discover/movie?with_genres=18&primary_release_year=2014${API_key}`
 		}
 		if (movieType == 'Comedy') {
-			url = base_url + '/discover/movie?with_genres=35&sort_by=revenue.desc' + API_key
+			url = `${base_url}/discover/movie?with_genres=35&sort_by=revenue.desc${API_key}`
 		}
 		if (movieType == 'Animation') {
-			url = base_url + '/discover/movie?with_genres=16&sort_by=revenue.desc' + API_key
+			url = `${base_url}/discover/movie?with_genres=16&sort_by=revenue.desc${API_key}`
 		}
 		if (movieType == 'Horror') {
-			url = base_url + '/discover/movie?with_genres=27&sort_by=revenue.desc' + API_key
+			url = `${base_url}/discover/movie?with_genres=27&sort_by=revenue.desc${API_key}`
 		}
 		setUrl(url)
 	}
