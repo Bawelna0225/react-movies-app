@@ -1,7 +1,3 @@
-import { render } from '@testing-library/react'
-import react, { useState } from 'react'
-import { useEffect } from 'react'
-
 const Card = ({movie, updateModal}) => {
 	const handleCardClick = (e) => {
 		updateModal(movie.title, movie.vote_average, movie.poster_path, movie.overview)
@@ -29,10 +25,6 @@ const Card = ({movie, updateModal}) => {
 						</div>
 					</div>
 				</div>
-				{/* <div className={open ? 'overview open' : 'overview'}>
-					<p>{movie.overview}</p> 
-					 <p>{movie.id}</p>
-				</div> */}
 			</div>
 		</div>
 	)

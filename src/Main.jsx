@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom/client';
 
 import Cards from './Cards'
 const API_key = '&api_key=84743ee32095533fcd630a3079c2d3f0',
 	base_url = 'https://api.themoviedb.org/3'
 let url = `${base_url}/discover/movie?sort_by=popularity.desc${API_key}`
-let arr = ['Popular', 'Sci-Fi', 'Fantasy', 'Drama', 'Comedy', 'Animation', 'Horror']
+let categories = ['Popular', 'Sci-Fi', 'Fantasy', 'Drama', 'Comedy', 'Animation', 'Horror']
 
 const Main = () => {
 	const [movieData, setData] = useState([])
@@ -22,33 +21,35 @@ const Main = () => {
 	}, [url_set])
 
 	const getData = (movieType) => {
-		if (movieType == 'Popular') {
-			url = `${base_url}/discover/movie?sort_by=popularity.desc${API_key}`
-		}
-		if (movieType == 'Fantasy') {
-			url = `${base_url}/discover/movie?with_genres=14${API_key}`
-		}
-		if (movieType == 'Sci-Fi') {
-			url = `${base_url}/discover/movie?with_genres=878&sort_by=popularity.desc${API_key}`
-		}
-		if (movieType == 'Drama') {
-			url = `${base_url}/discover/movie?with_genres=18&primary_release_year=2014${API_key}`
-		}
-		if (movieType == 'Comedy') {
-			url = `${base_url}/discover/movie?with_genres=35&sort_by=revenue.desc${API_key}`
-		}
-		if (movieType == 'Animation') {
-			url = `${base_url}/discover/movie?with_genres=16&sort_by=revenue.desc${API_key}`
-		}
-		if (movieType == 'Horror') {
-			url = `${base_url}/discover/movie?with_genres=27&sort_by=revenue.desc${API_key}`
+		switch (movieType) {
+			case 'Popular':
+				url = `${base_url}/discover/movie?sort_by=popularity.desc${API_key}`
+				break
+			case 'Fantasy':
+				url = `${base_url}/discover/movie?with_genres=14${API_key}`
+				break
+			case 'Sci-Fi':
+				url = `${base_url}/discover/movie?with_genres=878&sort_by=popularity.desc${API_key}`
+				break
+			case 'Drama':
+				url = `${base_url}/discover/movie?with_genres=18&primary_release_year=2014${API_key}`
+				break
+			case 'Comedy':
+				url = `${base_url}/discover/movie?with_genres=35&sort_by=revenue.desc${API_key}`
+				break
+			case 'Animation':
+				url = `${base_url}/discover/movie?with_genres=16&sort_by=revenue.desc${API_key}`
+				break
+			case 'Horror':
+				url = `${base_url}/discover/movie?with_genres=27&sort_by=revenue.desc${API_key}`
+				break
 		}
 		setUrl(url)
 	}
 	const searchMovie = (e) => {
 		if (e.key == 'Enter') {
 			e.preventDefault()
-			url = base_url + '/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query=' + search
+			url = `${base_url}/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query=${search}`
 			setUrl(url)
 			setSearch('')
 		}
@@ -90,7 +91,7 @@ const Main = () => {
 								>
 									<span className="rating-value">{modalData.vote_average}</span>
 								</div>
-							<p>User Score</p>	
+								<p>User Score</p>
 							</div>
 
 							<div className="overview">
@@ -105,7 +106,7 @@ const Main = () => {
 	}
 	// ---------------------------------------------------------------------
 	const updateModal = (title, vote_average, poster_path, overview) => {
-		setModalData({title, vote_average, poster_path, overview})
+		setModalData({ title, vote_average, poster_path, overview })
 		setModalOpen(true)
 	}
 	return (
@@ -120,7 +121,7 @@ const Main = () => {
 					</div>
 					<div className={sideNavOpen ? 'nav' : 'nav hide'} id="side-nav">
 						<ul>
-							{arr.map((value, pos) => {
+							{categories.map((value, pos) => {
 								return (
 									<li>
 										<a
@@ -139,7 +140,7 @@ const Main = () => {
 						</ul>
 					</div>
 					<ul className="navbar">
-						{arr.map((value, pos) => {
+						{categories.map((value, pos) => {
 							return (
 								<li>
 									<a
@@ -173,10 +174,10 @@ const Main = () => {
 				</form>
 			</div>
 			<div id="modal-here"></div>
-			<Modal {...modalData}/>
+			<Modal {...modalData} />
 			<div className="container">
 				{movieData.length === 0 ? (
-					<p className="notfound">Not Found</p>
+					<div className="notfound">No Matching Movies Found!</div>
 				) : (
 					movieData.map((res, pos) => {
 						return <Cards movie={res} key={pos} updateModal={updateModal} />
