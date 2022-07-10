@@ -47,6 +47,7 @@ const Main = () => {
 	}
 	const searchMovie = (e) => {
 		if (e.key == 'Enter') {
+			e.preventDefault()
 			url = base_url + '/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query=' + search
 			setUrl(url)
 			setSearch('')
@@ -174,7 +175,7 @@ const Main = () => {
 			<div id="modal-here"></div>
 			<Modal {...modalData}/>
 			<div className="container">
-				{movieData.length == 0 ? (
+				{movieData.length === 0 ? (
 					<p className="notfound">Not Found</p>
 				) : (
 					movieData.map((res, pos) => {
