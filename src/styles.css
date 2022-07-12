@@ -6,17 +6,17 @@
 }
 
 body {
-  background-color: rgb(25, 25, 52);
+  min-height: 100vh;
+  background-image: repeating-linear-gradient(45deg, hsla(64deg, 83%, 54%, 0.05) 0px, hsla(64deg, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64deg, 83%, 54%, 0.05) 11px, hsla(64deg, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(90deg, hsla(64deg, 83%, 54%, 0.05) 0px, hsla(64deg, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64deg, 83%, 54%, 0.05) 11px, hsla(64deg, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(0deg, hsla(64deg, 83%, 54%, 0.05) 0px, hsla(64deg, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64deg, 83%, 54%, 0.05) 11px, hsla(64deg, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(135deg, hsla(64deg, 83%, 54%, 0.05) 0px, hsla(64deg, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64deg, 83%, 54%, 0.05) 11px, hsla(64deg, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), linear-gradient(90deg, rgb(17, 17, 36), rgb(25, 25, 52));
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   align-items: center;
   gap: 40px;
   padding: 20px;
   padding-top: 100px;
-  background-color: rgb(17, 17, 36);
 }
 .container .notfound {
   width: 100%;

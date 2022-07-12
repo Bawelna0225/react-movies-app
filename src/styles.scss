@@ -5,17 +5,17 @@
 	font-family: sans-serif;
 }
 body {
-	background-color: rgb(25, 25, 52);
+	min-height: 100vh;
+	background-image: repeating-linear-gradient(45deg, hsla(64, 83%, 54%, 0.05) 0px, hsla(64, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64, 83%, 54%, 0.05) 11px, hsla(64, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(90deg, hsla(64, 83%, 54%, 0.05) 0px, hsla(64, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64, 83%, 54%, 0.05) 11px, hsla(64, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(0deg, hsla(64, 83%, 54%, 0.05) 0px, hsla(64, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64, 83%, 54%, 0.05) 11px, hsla(64, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(135deg, hsla(64, 83%, 54%, 0.05) 0px, hsla(64, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64, 83%, 54%, 0.05) 11px, hsla(64, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), linear-gradient(90deg, rgb(17, 17, 36), rgb(25, 25, 52));
 }
 .container {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 	align-items: center;
 	gap: 40px;
 	padding: 20px;
 	padding-top: 100px;
-	background-color: rgb(17, 17, 36);
-	.notfound{
+	.notfound {
 		width: 100%;
 		height: 50vh;
 		display: flex;
@@ -107,49 +107,6 @@ body {
 			}
 		}
 	}
-	// .overview {
-	// 	position: absolute;
-	// 	overflow-y: scroll;
-	// 	background-color: rgba(9, 4, 19, 0.902);
-	// 	padding: 20px;
-	// 	font-size: 18px;
-	// 	color: white;
-	// 	opacity: 0;
-	// 	display: flex;
-	// 	flex-direction: column;
-	// 	justify-content: center;
-	// 	align-items: center;
-	// 	gap: 30px;
-	// 	p {
-	// 		// height: 100px;
-	// 		padding-top: 20px;
-	// 		top: 0;
-	// 	}
-	// 	&::-webkit-scrollbar {
-	// 		width: 5px;
-	// 	}
-	// 	&::-webkit-scrollbar-thumb {
-	// 		background-color: aqua;
-	// 	}
-	// 	&.open {
-	// 		opacity: 1;
-	// 		backdrop-filter: blur(5px);
-	// 		top: 0;
-	// 		bottom: 0;
-	// 		left: 0;
-	// 		right: 0;
-	// 	}
-	// 	.close {
-	// 		padding: 8px 12px;
-	// 		// position: absolute;
-	// 		font-size: 20px;
-	// 		bottom: 20px;
-	// 		right: 20px;
-	// 		cursor: pointer;
-	// 		background-color: rgb(0, 213, 255);
-	// 		border-radius: 5px;
-	// 	}
-	// }
 }
 .header {
 	background-color: rgba(12, 16, 29, 0.959);
