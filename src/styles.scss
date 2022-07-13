@@ -6,8 +6,8 @@
 }
 body {
 	min-height: 100vh;
-	overflow-x: hidden;
 	background-image: repeating-linear-gradient(45deg, hsla(64, 83%, 54%, 0.05) 0px, hsla(64, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64, 83%, 54%, 0.05) 11px, hsla(64, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(90deg, hsla(64, 83%, 54%, 0.05) 0px, hsla(64, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64, 83%, 54%, 0.05) 11px, hsla(64, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(0deg, hsla(64, 83%, 54%, 0.05) 0px, hsla(64, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64, 83%, 54%, 0.05) 11px, hsla(64, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(135deg, hsla(64, 83%, 54%, 0.05) 0px, hsla(64, 83%, 54%, 0.05) 1px, transparent 1px, transparent 11px, hsla(64, 83%, 54%, 0.05) 11px, hsla(64, 83%, 54%, 0.05) 12px, transparent 12px, transparent 32px), linear-gradient(90deg, rgb(17, 17, 36), rgb(25, 25, 52));
+	overflow-x: hidden;
 }
 .container {
 	overflow: hidden;
@@ -17,6 +17,7 @@ body {
 	gap: 40px;
 	padding: 20px;
 	padding-top: 100px;
+	// background-color: rgb(17, 17, 36);
 	.notfound {
 		position: absolute;
 		display: flex;
@@ -31,8 +32,9 @@ body {
 	}
 }
 .movie-card {
-	border-radius: 8px;
-	box-shadow: 5px 5px 10px rgb(21, 21, 40);
+	border-radius: 8px !important;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	cursor: pointer;
 	&:hover {
@@ -67,7 +69,7 @@ body {
 		background-color: rgba(25, 25, 52, 0.911);
 		width: 100%;
 		color: white;
-		bottom: 0;
+		bottom: 0px;
 		left: 0;
 		height: 20%;
 
