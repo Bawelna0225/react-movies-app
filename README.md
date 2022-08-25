@@ -1,3 +1,12 @@
+# React Movies App
+![](https://github.com/Bawelna0225/react-movies-app/blob/master/react-movies-app.PNG)
+## Functionalities:
+- Selecting category
+- Searching for movie using searchbar
+- Viewing movie details after clicking on card
+### [Live App](https://cp-react-movies-app.netlify.app/)
+#### App is fully responsive
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
